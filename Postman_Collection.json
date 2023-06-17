@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "a3a8b6b9-f02e-41c6-8c32-b5baacc8a87c",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Select",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}",
+					"host": [
+						"{{Base_URL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Name",
+							"value": "Rajkot New",
+							"type": "text"
+						},
+						{
+							"key": "CountryCode",
+							"value": "IND",
+							"type": "text"
+						},
+						{
+							"key": "District",
+							"value": "Gujarat",
+							"type": "text"
+						},
+						{
+							"key": "Population",
+							"value": "600055",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Base_URL}}insert",
+					"host": [
+						"{{Base_URL}}insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "Name",
+							"value": "Rajkot Updated",
+							"type": "text"
+						},
+						{
+							"key": "CountryCode",
+							"value": "IND",
+							"type": "text"
+						},
+						{
+							"key": "District",
+							"value": "Gujarat",
+							"type": "text"
+						},
+						{
+							"key": "Population",
+							"value": "600055",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Base_URL}}update/4080",
+					"host": [
+						"{{Base_URL}}update"
+					],
+					"path": [
+						"4080"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}delete/4080",
+					"host": [
+						"{{Base_URL}}delete"
+					],
+					"path": [
+						"4080"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Record",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image_dev",
+							"type": "file",
+							"src": "/C:/Users/Developer/Desktop/adha.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{Base_URL}}get/4079",
+					"host": [
+						"{{Base_URL}}get"
+					],
+					"path": [
+						"4079"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
