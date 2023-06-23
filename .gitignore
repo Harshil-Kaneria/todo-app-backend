@@ -1,2 +1,5 @@
+.env
 node_modules/
-package-lock.json
+public/node_modules
+coverage
+yarn-error.log
