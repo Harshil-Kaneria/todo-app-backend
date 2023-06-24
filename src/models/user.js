@@ -1,15 +1,20 @@
-
+const { uuid } = require('unique-string-generator');
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'User',
     {
+      secrete_id:{
+        type: DataTypes.STRING,
+        defaultValue: uuid.v4()
+      },
       firstName: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       lastName: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
       email: {
         type: DataTypes.STRING,
@@ -17,30 +22,20 @@ module.exports = (sequelize, DataTypes) => {
       },
       password: {
         type: DataTypes.STRING,
-      },
-      profilePic: {
-        type: DataTypes.STRING,
+        allowNull: false,
       },
       isAdmin: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
-      },
-      verifyToken: {
-        type: DataTypes.STRING,
-        defaultValue: null,
-      },
-      isVerified: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: false,
-      },
+      }
     },
     {
       defaultScope: {
-        attributes: { exclude: ['password', 'verifyToken', 'isAdmin'] },
+        attributes: { exclude: ['password','isAdmin'] },
       },
       scopes: {
         withSecretColumns: {
-          attributes: { include: ['password', 'verifyToken', 'isAdmin'] },
+          attributes: { include: ['password','isAdmin'] },
         },
       },
     },

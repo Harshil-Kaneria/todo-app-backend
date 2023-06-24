@@ -8,20 +8,25 @@ module.exports = {
       primaryKey: true,
       type: Sequelize.INTEGER,
     },
+    secrete_id:{
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
     firstName: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     lastName: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     email: {
       type: Sequelize.STRING,
+      allowNull: false,
     },
     password: {
       type: Sequelize.STRING,
-    },
-    profilePic: {
-      type: Sequelize.STRING,
+      allowNull: false,
     },
     isAdmin: {
       type: Sequelize.BOOLEAN,
