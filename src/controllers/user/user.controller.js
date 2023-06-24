@@ -54,7 +54,7 @@ export const register = async (req, res) => {
       res,
       StatusCodes.INTERNAL_SERVER_ERROR,
       false,
-      err.message || ''
+      error.message || ''
     );
   }
 };
@@ -97,7 +97,7 @@ export const login = async (req, res) => {
       res,
       StatusCodes.INTERNAL_SERVER_ERROR,
       false,
-      err.message || ''
+      error.message || ''
     );
   }
 };
@@ -126,7 +126,7 @@ export const profile = async (req, res) => {
       res,
       StatusCodes.INTERNAL_SERVER_ERROR,
       false,
-      err.message || ''
+      error.message || ''
     );
   }
 };

@@ -10,6 +10,23 @@
 			"item": [
 				{
 					"name": "User Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"     pm.collectionVariables.set(\"token\", '');\r",
+									"    pm.response.to.have.status(200);\r",
+									"    var responseBody = pm.response.json();\r",
+									"    var token = responseBody.token;\r",
+									"    pm.collectionVariables.set(\"token\", token);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -66,6 +83,17 @@
 				},
 				{
 					"name": "Get User Data",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -74,7 +102,7 @@
 						"header": [
 							{
 								"key": "x-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InNlY3JldGVfaWQiOiI0ODE1Mjg4ZC1kNmQxLTQ2NmQtYjYxMS02MTBmMzE0NTZiYWYiLCJlbWFpbCI6ImFiY0AxMjMifSwiaWF0IjoxNjg3NTk5MTkxfQ.QlTLzCxGJoYCBL6d3kCg4FzWqMXp6A9EVO6Vx6GhFDw",
+								"value": "{{token}}",
 								"type": "default"
 							}
 						],
@@ -92,6 +120,12 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
 		}
 	]
 }
