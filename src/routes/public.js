@@ -1,8 +1,7 @@
-import express from 'express';
-import validate from 'express-validation';
-
-import * as userController from '../controllers/user/user.controller';
-import * as userValidator from '../controllers/user/user.validator';
+import express from "express";
+import validate from "express-validation";
+import { login as userLogin , register as userRegister } from "../controllers/user/user.controller";
+import { login as userValidatorLogin , register as userValidatorRegister } from "../controllers/user/user.validator";
 
 const router = express.Router();
 
@@ -10,15 +9,8 @@ const router = express.Router();
 // Public routes
 //= ===============================
 
-router.post(
-  '/login',
-  validate(userValidator.login),
-  userController.login,
-);
-router.post(
-  '/register',
-  validate(userValidator.register),
-  userController.register,
-);
+router.post("/login", validate(userValidatorLogin), userLogin);
+router.post("/register",validate(userValidatorRegister),userRegister);
+
 
 module.exports = router;

@@ -4,12 +4,16 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
+import { StatusCodes } from "http-status-codes";
+import { generateResponse } from "./src/helpers"
+global.StatusCodes = StatusCodes
+global.generateResponse = generateResponse
+
 import publicRoutes from './src/routes/public';
 import apiRoutes from './src/routes/api';
-import adminRoutes from './src/routes/admin';
 import apiMiddleware from './src/middleware/apiAuth';
-import adminMiddleware from './src/middleware/adminAuth';
 import errorHandler from './src/middleware/errorHandler';
+
 
 dotenv.config();
 require('./src/config/sequelize');
@@ -21,11 +25,11 @@ app.use(
   }),
 );
 
+
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/pub', publicRoutes);
 app.use('/api', apiMiddleware, apiRoutes);
-app.use('/api/admin', apiMiddleware, adminMiddleware, adminRoutes);
+app.use('/public/api', publicRoutes);
 app.use(errorHandler);
 
 module.exports = app;

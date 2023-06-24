@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "0132da5a-f98e-4a0f-b312-aec809da0d2d",
+		"name": "Express - API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"abc@123\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/public/api/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"public",
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"abc\",\r\n    \"lastName\": \"xyz\",\r\n    \"email\": \"abc@123\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/public/api/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"public",
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Data",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InNlY3JldGVfaWQiOiI0ODE1Mjg4ZC1kNmQxLTQ2NmQtYjYxMS02MTBmMzE0NTZiYWYiLCJlbWFpbCI6ImFiY0AxMjMifSwiaWF0IjoxNjg3NTk5MTkxfQ.QlTLzCxGJoYCBL6d3kCg4FzWqMXp6A9EVO6Vx6GhFDw",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/user-details",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user-details"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
