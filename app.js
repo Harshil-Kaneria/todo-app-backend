@@ -7,9 +7,12 @@ import rateLimit from 'express-rate-limit'
 import helmet from "helmet";
 
 import { StatusCodes } from "http-status-codes";
-import { generateResponse } from "./src/helpers"
+import { generateResponse,upload_file,send_mail } from "./src/helpers"
 global.StatusCodes = StatusCodes
 global.generateResponse = generateResponse
+global.upload_file = upload_file
+global.send_mail = send_mail
+global.constants = require('./src/config/constant');
 
 import publicRoutes from './src/routes/public';
 import apiRoutes from './src/routes/api';
